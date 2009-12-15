@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <!-- metadata -->
+    <meta name="generator" content="S5" />
+    <meta name="version" content="S5 1.1" />
+    <meta name="presdate" content="20091219" />
+    <meta name="author" content="源馬 照明" />
+    <meta name="company" content="名古屋大学大学院多元数理科学研究科" />
+    <!-- configuration parameters -->
+    <meta name="defaultView" content="slideshow" />
+    <meta name="controlVis" content="hidden" />
+    <title>アプリケーションプラットフォームとしてのFirefox拡張</title>
+    <!-- style sheet links -->
+    <link rel="stylesheet" href="pixel/slides.css" type="text/css" media="projection" id="slideProj" />
+    <link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+    <link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+    <link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+    <!-- embedded styles -->
+    <style type="text/css" media="all">
+    </style>
+    <!-- S5 JS -->
+    <script src="ui/default/slides.js" type="text/javascript"></script>
+  </head>
+<body>
+<div class="layout">
+  <div id="controls"><!-- DO NOT EDIT --></div>
+  <div id="currentSlide"><!-- DO NOT EDIT --></div>
+  <div id="header"></div>
+  <div id="footer">
+    <h1>アプリケーションプラットフォームとしてのFirefox拡張</h1>
+    <h2>源馬照明 &#8226; 2009年12月19日</h2>
+  </div>
+</div>
+<div class="presentation">
+
+<div class="slide">
+  <h1>アプリケーションプラットフォーム<br />としてのFirefox拡張</h1>
+  <h3>源馬照明 <a href="http://twitter.com/Gemmat">@Gemmat</a></h3>
+</div>
+
+<div class="slide">
+  <h1>はじめに</h1>
+  <ul>
+    <li>Firefox3 Hacksで、1年間勉強しました。
+      <ul><li>すばらしい本をありがとう!</li></ul>
+    </li>
+    <li>著者の1人のdynamis様から貴重な機会をいただき、光栄です。
+      <ul><li>あとでサインをください &gt;&lt;</li></ul>
+    </li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>母「パソコンで新聞読みなさい」</h1>
+  <ul>
+    <li>パソコンといえばブラウザ
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>母「メール送ったわよ」</h1>
+  <ul>
+    <li>母はヤフーメール</li>
+    <li>私はGMail</li>
+    <li>デスクトップからウェブへ</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>ブラウザは書き直せる</h1>
+  <p><a href="matrix.jpg"><img src="matrix.jpg" height="350"/></a></p>
+</div>
+
+<div class="slide">
+  <h1>ブラウザを支配∽世界を支配</h1>
+  <p><a href="deathnote.jpg"><img src="deathnote.jpg" height="350"/></a></p>
+</div>
+
+<div class="slide">
+  <h1>大学院の研究でFirefox拡張を使ってみた</h1>
+  <ul>
+    <li>"ブラウザと融合するインスタントメッセンジャー「むすび」"
+    <li>1年間の拡張開発は、結果から言えば、大成功！
+    <li>Windows, Mac, Linux で動いて感動
+    <li>使いやすいGUIを簡単に実現できた。
+      <ul><li>使いやすいFirefoxの上で動くから。</li></ul>
+    </li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>なぜFirefox?(1/2)</h1>
+  <a href="usetheforce.jpg"><img class="right" src="usetheforce.jpg" height="350"/></a>
+  <p>よいプログラマーは、何を書くべきかわかっている。</p>
+  <p>偉大なプログラマは、何を書き直すべきか<br/>(そして再利用すべきか)わかっている。</p>
+</div>
+
+<div class="slide">
+  <h1>なぜFirefox?(2/2)</h1>
+  <a href="mozilla.gif"><img class="right" src="mozilla.gif" height="350"/></a>
+  <p>"巨人の肩の上に立つ"</p>
+  <ul>
+    <li>世界中のハッカーが毎夜改善</li>
+    <li>世界中のユーザーが毎日利用</li>
+  </ul>
+  <p>信頼と実績の、頑丈な巨人。性能や安全性も大事ですが、我々プログラマが最後に称賛するのは、頑丈さなのです!</p>
+</div>
+
+<div class="slide">
+  <h1>Visual Basicの思いで</h1>
+  <p>私の初めてのプログラミングは中学生のとき、Windows95のVB5.0</p>
+  <ul>
+    <li>おもちゃ言語
+      <ul>
+        <li>ポインタない</li>
+        <li>リストない</li>
+        <li>クロージャない</li>
+        <li>オブジェクト指向じゃない</li>
+        <li>関数がファーストクラスじゃない</li>
+      </ul>
+    </li>
+    <li>GUIを簡単に作れた。
+    <li>Windows限定
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>C言語、Schemeの思いで</h1>
+  <p>大学で、C言語、Schemeを勉強して、GTKやSDLを触ってみた</p>
+  <ul>
+    <li>本物の言語</li>
+    <li>だが、GUIが全然ダメ。</li>
+    <li>Linux限定(事実上)</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>GUIにありがちな問題</h1>
+  <ul>
+    <li>スクロールすると画面が乱れる
+    <li>日本語入力を使うとチラつく
+    <li>窓の大きさを変えると部品の配置がぐちゃぐちゃになる
+    <li>独自の部品を作れない
+    <li>国際化が難しい
+    <li>Macユーザが、OK・適用・キャンセルボタンを嫌がる
+  </ul>
+  <p>Firefox拡張で全部解決。最強のGUIと言語のコンボをついに手に入れた。</p>
+</div>
+
+<div class="slide">
+  <h1>最強のGUI(XUL,CSS)</h1>
+  <ul>
+    <li>XULのリキッドレイアウトをGIFアニメで説明
+    <li>Win、Mac、Linuxの設定ウィンドウのスクリーンショットを比較
+    <li>スキン(CSS)の説明
+    <li>国際化の説明
+  </ul>
+</div>
+
+
+<div class="slide">
+  <h1>最強の言語(Javascript)</h1>
+  <ul>
+    <li>おなじみのC言語風構文</li>
+    <li>プロトタイプベースのオブジェクト指向(Self風設計)</li>
+    <li>クロージャなど関数型言語の側面(Scheme風設計)</li>
+    <li>真のWrite once, Run anywhere</li>
+  </ul>
+  <p>Javascriptはプログラマの共通語になりつつある。</p>
+</div>
+
+<div class="slide">
+  <h1>Firefox拡張</h1>
+  <ul>
+    <li>ローカルファイル読み書き、ソケット通信などが可能
+      <ul><li>FTPクライアント、HTTPサーバ、インスタントメッセンジャだって作れる</li></ul>
+    </li>
+    <li>データベース内蔵
+    <li>設定システム内蔵
+    <li>設定ウィンドウすぐ作れます(prefwindow要素)
+    <li>ウィザードすぐ作れます(wizard要素)
+    <li>インストール簡単
+    <li>アップデート簡単
+    <li>ブラウザを拡張すると自然と良いGUIになる気がする。
+      <ul><li>iTunesや2chブラウザはその典型。</li></ul>
+    </li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Mozillaプラットフォーム概要</h1>
+  <p>dynamis様の資料から拝借。<a href="platform.png"><img src="platform.png" height="350"/></a></p>
+</div>
+
+<div class="slide">
+  <h1>アプリケーションプラットフォーム</h1>
+  <ul>
+    <li>2chブラウザ(ブラウザの表現力を活かす)
+    <li>Twitterボット、サンシャイン牧場ボット
+      <ul>
+        <li>タイマーで遅延をかけつつリクエスト連発</li>
+        <li>レスポンスのJSONをパース</li>
+      </ul>
+    </li>
+    <li>最強のスクレイピング
+      <ul>
+        <li>ダメなHTMLソースでも大丈夫</li>
+        <li>DOM、XPathが強力</li>
+      </ul>
+    </li>
+    <li>Scaffold生成
+      <ul><li>クロスプラットフォームなローカルファイル読み書きが強力</li></ul>
+    </li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>ウェブを改革する方法</h1>
+  <ul>
+    <li>URIを改革する方法、独自プロトコルの定義
+    <li>HTMLを改革する方法(?)、Chromeと非特権ドキュメントでデータを交換する
+    <li>HTTPを改革する方法、拡張ならソケット通信をいじれる。
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>独自プロトコルの定義</h1>
+</div>
+
+<div class="slide">
+  <h1>Chromeと非特権ドキュメントでデータを交換する</h1>
+</div>
+
+<div class="slide">
+  <h1>マッチFOXの紹介</h1>
+  <p>Firefox拡張を始めたいあなたに。scaffoldを生成。</p>
+</div>
+
+<div class="slide">
+  <h1>むすびの紹介</h1>
+  <p>紹介した2つのテクニックを使っている</p>
+  <ul>
+    <li>独自プロトコルの定義</li>
+    <li>Chromeと非特権ドキュメントでデータを交換する</li>
+  </ul>
+</div>
+
+</body>
+</html>
+
