@@ -13,7 +13,7 @@ ul, pre {margin: 0; line-height: 1em;}
 html, body {margin: 0; padding: 0;}
 
 blockquote, q {font-style: italic;}
-blockquote {padding: 0 2em 0.5em; margin: 0 1.5em 0.5em; text-align: center; font-size: 1em;}
+blockquote {padding: 0 2em 0.5em; margin: 0 1em 0.5em; text-align: left; font-size: 0.7em;}
 blockquote p {margin: 0;}
 blockquote i {font-style: normal;}
 blockquote b {display: block; margin-top: 0.5em; font-weight: normal; font-size: smaller; font-style: normal;}
@@ -92,4 +92,21 @@ ul.urls {list-style: none; display: inline; margin: 0;}
 
 img.right {
   float: right;
+}
+
+div.niconico {
+  position: absolute;
+  color: #d9a62e;
+  font-size: 1.5em;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+div.niconico a {
+  display: none;
+}
+
+div.niconico img {
+  height: 1.5em;
 }

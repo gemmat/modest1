@@ -22,6 +22,9 @@
     </style>
     <!-- S5 JS -->
     <script src="ui/default/slides.js" type="text/javascript"></script>
+    <script src="musubi.js" type="text/javascript"></script>
+    <script src="prototype.js" type="text/javascript"></script>
+    <script src="nico.js" type="text/javascript"></script>
   </head>
 <body>
 <div class="layout">
@@ -37,7 +40,10 @@
 
 <div class="slide">
   <h1>アプリケーションプラットフォーム<br />としてのFirefox拡張</h1>
-  <h3>源馬照明 <a href="http://twitter.com/Gemmat">@Gemmat</a></h3>
+  <h3>
+    <a href="http://twitter.com/Gemmat">@Gemmat</a>
+    teruakigemma@gmail.com
+  </h3>
 </div>
 
 <div class="slide">
@@ -100,35 +106,34 @@
 <div class="slide">
   <h1>なぜFirefox?(1/2)</h1>
   <a href="mozilla.gif"><img class="right" src="mozilla.gif" height="350"/></a>
-  <p>"巨人の肩の上に立つ"</p>
+  <p><q>巨人の肩の上に立つ</q></p>
   <ul>
     <li>世界中のハッカーが毎夜改善</li>
     <li>世界中のユーザーが毎日利用</li>
   </ul>
-  <p>信頼と実績の、頑丈な巨人。性能や安全性も大事ですが、我々プログラマが最後に称賛するのは、頑丈さなのです!</p>
+  <p>頑丈な巨人。プログラマが最後に称賛するのは、頑丈さなのです!</p>
 </div>
 
 <div class="slide">
   <h1>なぜFirefox?(2/2)</h1>
   <a href="usetheforce.jpg"><img class="right" src="usetheforce.jpg" height="350"/></a>
-  <p>よいプログラマーは、何を書くべきかわかっている。</p>
-  <p>偉大なプログラマは、何を書き直すべきか<br/>(そして再利用すべきか)わかっている。</p>
-  <hr/>
-  <h2>ソースを使え、ルーク!</h2>
+  <p>
+  <blockquote>
+  よいプログラマーは、何を書くべきかわかっている。<br/>
+  偉大なプログラマは、何を書き直すべきか<br/>(そして再利用すべきか)わかっている。
+  </blockquote>
+  </p>
+  <q>ソースを使え、ルーク!</q>
 </div>
 
 <div class="slide">
-  <h1>Visual Basicの思いで</h1>
-  <p>私の初めてのプログラミングは中学生のとき、Windows95のVB5.0</p>
+  <h1>プラットフォームの比較</h1>
+  <p>中学で、Windows95のVB5.0</p>
   <ul>
     <li>おもちゃ言語
     <li>GUIを簡単に作れた。
     <li>Windows限定
   </ul>
-</div>
-
-<div class="slide">
-  <h1>C言語、Schemeの思いで</h1>
   <p>大学で、C言語、Schemeを勉強して、GTKやSDLを触ってみた</p>
   <ul>
     <li>本物の言語</li>
@@ -142,7 +147,7 @@
   <ul>
     <li>スクロールすると画面が乱れる
     <li>日本語入力を使うとチラつく
-    <li>窓の大きさを変えると部品の配置がぐちゃぐちゃになる
+    <li>窓のサイズを変えるとレイアウトがぐちゃぐちゃに
     <li>独自の部品を作れない
     <li>国際化が難しい
     <li>Macユーザが、OK・適用・キャンセルボタンを嫌がる
@@ -160,20 +165,19 @@
 <div class="slide">
   <h1>最強のGUI(XUL)</h1>
   <p>国際化
-    <a href="locale.png"><img src="locale.png" height="200"/></a><br/>
-    <a href="strings.png"><img src="strings.png" height="200"/></a>
-    <a href="stringsja.png"><img src="stringsja.png" height="200"/></a>
+    <a href="locale.png"><img src="locale.png" height="250"/></a><br/>
+    <a href="strings.png"><img src="strings.png" height="180"/></a>
+    <a href="stringsja.png"><img src="stringsja.png" height="180"/></a>
   </p>
 </div>
 
 <div class="slide">
   <h1>最強のGUI(CSS)</h1>
   <p>
-    <a href="pref_win.png"><img src="pref_win.png" height="200"/></a>
-    <a href="pref_linux.png"><img src="pref_linux.png" height="200"/></a>
-    <a href="userexp0.png"><img src="userexp0.png" height="350"/></a>
-    <a href="userexp1.png"><img src="userexp1.png" height="350"/></a>
-    <a href="userexp2.png"><img src="userexp2.png" height="350"/></a>
+    <a href="pref_win.png"><img src="pref_win.png" height="250"/></a>
+    <a href="pref_linux.png"><img src="pref_linux.png" height="250"/></a>
+    <a href="userexp0.png"><img src="userexp0.png" height="250"/></a>
+    <a href="userexp1.png"><img src="userexp1.png" height="250"/></a>
   </p>
 </div>
 
@@ -188,6 +192,12 @@
 </div>
 
 <div class="slide">
+  <h1>Mozillaプラットフォーム概要</h1>
+  <p><a href="platform.png"><img src="platform.png" height="400"/></a></p>
+  dynamis様の資料から拝借。
+</div>
+
+<div class="slide">
   <h1>Firefox拡張</h1>
   <ul>
     <li>ローカルファイル読み書き、ソケット通信などが可能
@@ -195,25 +205,40 @@
     </li>
     <li>データベース内蔵
     <li>設定システム内蔵
-    <li>設定ウィンドウ簡単(prefwindow要素)
-    <li>ウィザード簡単(wizard要素)
     <li>インストール簡単
     <li>アップデート簡単
-    <li>ブラウザを拡張すると自然と良いGUIになる気がする。
-      <ul><li>iTunesや2chブラウザはその典型。</li></ul>
+    <li>設定ウィンドウ簡単(xul:prefwindow要素)
+    <li>ウィザード簡単(xul:wizard要素)
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>アプリケーションプラットフォーム(1/2)</h1>
+  <ul>
+    <li>2chブラウザ
+      <ul>
+        <li>ブラウザの表現力を活かす</li>
+        <li><q>履歴</q>,<q>ブックマーク</q>などがそのまま使える</li>
+      </ul>
+    </li>
+    <li>はてブ拡張
+      <ul>
+        <li>ウェブとの連動</li>
+        <li>内蔵データベースで高速な検索</li>
+      </ul>
+    </li>
+    <li>FTPクライアント、メディアプレーヤー、etc.
+      <ul>
+        <li>クロスプラットフォームなGUI</li>
+        <li>充実した通信機能</li>
+        <li>スキン対応</li>
+      </ul>
     </li>
   </ul>
 </div>
 
 <div class="slide">
-  <h1>Mozillaプラットフォーム概要</h1>
-  <p><a href="platform.png"><img src="platform.png" height="400"/></a>
-    dynamis様の資料から拝借。
-  </p>
-</div>
-
-<div class="slide">
-  <h1>アプリケーションプラットフォーム</h1>
+  <h1>アプリケーションプラットフォーム(2/2)</h1>
   <ul>
     <li>Twitterボット、サンシャイン牧場ボット
       <ul>
@@ -230,7 +255,6 @@
     <li>ファイル生成
       <ul><li>クロスプラットフォームなファイル読み書きが強力</li></ul>
     </li>
-    <li>2chブラウザ, FTPクライアント, データベース管理, etc.
   </ul>
 </div>
 
@@ -245,10 +269,9 @@
 
 <div class="slide">
   <h1>独自プロトコルの定義</h1>
-  <p>こういうGUIを見たら独自プロトコルの出番
-    <a href="uri_firefox.png"><img src="uri_firefox.png" height="150"/></a>
-    <a href="uri_2ch.png"><img src="uri_2ch.png" height="150"/></a>
-    <a href="uri_gtalk.png"><img src="uri_gtalk.png" width="600"/></a>
+  <p>こういうGUIを見たら<a href="http://piro.sakura.ne.jp/latest/blosxom/mozilla/xul/2007-03-26_protocol.htm">Firefoxで独自プロトコルを定義する方法 - outsider reflex</a>の出番
+    <a href="uri_2ch.png"><img src="uri_2ch.png" height="200"/></a>
+    <a href="uri_gtalk.png"><img src="uri_gtalk.png" height="300"/></a>
   </p>
 </div>
 
@@ -259,21 +282,37 @@
     <li>DOMNodeInsertedイベントを待つ</li>
     <li>セキュリティの壁ごしに、ドキュメントの様子をうかがう。安全。</li>
   </ul>
+  <a href="https://developer.mozilla.org/ja/Code_snippets/Interaction_between_privileged_and_non-privileged_pages">Interaction between privileged and non-privileged pages</a>
 </div>
 
 <div class="slide">
   <h1>マッチFOXの紹介</h1>
   <ul>
-    <li>Firefox拡張を始めたいあなたに。骨組みを生成。</li>
+    <li>Firefox拡張を始めたいあなたに。拡張の骨組みを生成。</li>
     <li>ORMライブラリなど同梱</li>
+    <li>E4Xをテンプレートエンジンにしてご希望の骨組みを生成し、ファイルに書き込む<br/>
+    <code>
+      &lt;file&gt;<br/>
+  function hoge(){"{"} <br/>
+    alert("Hello, {Template.yourname}");<br/>
+  {"}"}<br/>
+      &lt;/file&gt;
+    </code>
+    </li>
     <li><a href="https://addons.mozilla.org/ja/firefox/addon/47147/">マッチFOX</a></li>
   </ul>
 </div>
 
 <div class="slide">
   <h1>むすびの紹介</h1>
-  <p>紹介した2つのテクニックを使っている</p>
+  <p>
+    <div>
+      <a href="uri_gtalk.png"><img src="uri_gtalk.png" height="300"/></a>
+      <a href="archi.png"><img src="archi.png" height="300"/></a>
+    </div>
+  </p>
   <ul>
+    <li><a href="https://addons.mozilla.org/ja/firefox/addon/50716">ブラウザと融合するインスタントメッセンジャー</a></li>
     <li>独自プロトコルの定義</li>
     <li>Chromeと非特権ドキュメントでデータを交換する</li>
   </ul>
