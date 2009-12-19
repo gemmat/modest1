@@ -32,6 +32,7 @@ function appendMessage(aFrom, aMessage) {
 function appendXHTMLMessage(aFrom, aMessage) {
   if (aMessage.indexOf("Gemmat") == -1 &&
       aMessage.indexOf("gemmat") == -1 &&
+      aMessage.indexOf("Mozilla") == -1 &&
       aMessage.indexOf("modest") == -1) return;
   var div = new Element("div");
   div.innerHTML = replaceLink(aMessage);
@@ -78,20 +79,7 @@ function main(e) {
 
 function test() {
   recv(<message from="hogehoge@localhost">
-         <body>グーグルトーク</body>
-       </message>);
-  recv(<message
-         from="Gemmat@twitter.tweet.im"
-         to="teruakigemma@gmail.com/Musubi83AA2D18"
-         type="chat">
-         <body>test (test): なう @Gemmat </body>
-         <html xmlns="http://jabber.org/protocol/xhtml-im">
-           <body xmlns="http://www.w3.org/1999/xhtml">
-             <span>
-               <img src="http://a3.twimg.com/profile_images/73702551/profile.gif"/>
-                  <a href="http://twitter.com/test">test</a>(test): なう @Gemmat</span>
-           </body>
-         </html>
+         <body>グーグルトークでおk</body>
        </message>);
   recv(<message
          from="Gemmat@twitter.tweet.im"
